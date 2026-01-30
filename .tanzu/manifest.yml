@@ -1,0 +1,12 @@
+applications:
+  - name: acme-petclinic
+    memory: 1G
+    instances: 1
+    buildpacks:
+      - java_buildpack_offline
+    path: ../target/spring-petclinic-2.7.3-spring-boot.jar
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{jre: {version: 1.8.0_+}}'
+      SPRING_PROFILES_ACTIVE: default
+    health-check-type: port
+    disk-quota: 1G

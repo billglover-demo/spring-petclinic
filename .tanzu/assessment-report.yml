@@ -1,0 +1,37 @@
+docker-volume-mount:
+  - file-path: "docker-compose.yml"
+    line-number: 0
+    recommendation: "Persistent volumes are not available by default. It will require\
+      \ service broker configurations in Tanzu Platform (NFS,SMB...). Network data\
+      \ services (DBs, S3...) can also be leveraged."
+java-cache-import:
+  - file-path: "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java"
+    line-number: 20
+    recommendation: "Caching must be distributed or potential state information could\
+      \ be lost. Distributing the cache across multiple servers offers significant\
+      \ advantages in terms of scalability, performance, and fault tolerance compared\
+      \ to storing data on a single server or within individual application instances.\
+      \ Caching implementation must be reviewed."
+  - file-path: "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java"
+    line-number: 24
+    recommendation: "Caching must be distributed or potential state information could\
+      \ be lost. Distributing the cache across multiple servers offers significant\
+      \ advantages in terms of scalability, performance, and fault tolerance compared\
+      \ to storing data on a single server or within individual application instances.\
+      \ Caching implementation must be reviewed."
+  - file-path: "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java"
+    line-number: 18
+    recommendation: "Caching must be distributed or potential state information could\
+      \ be lost. Distributing the cache across multiple servers offers significant\
+      \ advantages in terms of scalability, performance, and fault tolerance compared\
+      \ to storing data on a single server or within individual application instances.\
+      \ Caching implementation must be reviewed."
+java-spring-transaction:
+  - file-path: "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java"
+    line-number: 23
+    recommendation: "Distributed transactions could be problematic and current implementation\
+      \ should be reviewed."
+  - file-path: "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java"
+    line-number: 25
+    recommendation: "Distributed transactions could be problematic and current implementation\
+      \ should be reviewed."
